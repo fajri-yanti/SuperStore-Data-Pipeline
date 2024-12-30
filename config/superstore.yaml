@@ -1,0 +1,14 @@
+ingestion:
+  - bronze_transaction
+  - silver_dim_customers
+  - silver_dim_products
+  - silver_dim_orders
+  
+transformation:
+  - resources/sql/superstore/silver/dim_customers.sql
+  - resources/sql/superstore/silver/dim_products.sql
+  - resources/sql/superstore/silver/dim_orders.sql
+
+datamart:
+  - resources/sql/superstore/gold/fact_sales.sql
+
