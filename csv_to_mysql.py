@@ -30,7 +30,7 @@ def insert_data_from_csv():
     data['last_update'] = pd.Timestamp.now(tz=timezone('Asia/Jakarta'))
     data = data.drop(['year_month'], axis=1)
 
-    engine = create_engine("mysql+mysqlconnector://root:dibimbing@host.docker.internal:3303/SuperStore",isolation_level="AUTOCOMMIT")
+    engine = create_engine("mysql+mysqlconnector://root:password@host.docker.internal:3303/SuperStore",isolation_level="AUTOCOMMIT")
     try:
         data.to_sql('bronze_transaction', con=engine, if_exists='append', index=False)
         print("Data inserted successfully into MySQL.")
