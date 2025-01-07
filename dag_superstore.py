@@ -38,7 +38,7 @@ def dag_superstore():
    for filepath in config.get("transformation", []):
        transform = SQLExecuteQueryOperator(
            task_id = f"transform.{filepath.split('/')[-1]}",
-           conn_id = "postgres_dibimbing",
+           conn_id = "postgres_conn",
            sql     = filepath,
        )
 
@@ -48,7 +48,7 @@ def dag_superstore():
    for filepath in config.get("datamart", []):
        datamart = SQLExecuteQueryOperator(
            task_id = f"datamart.{filepath.split('/')[-1]}",
-           conn_id = "postgres_dibimbing",
+           conn_id = "postgres_conn",
            sql     = filepath,
        )
 
